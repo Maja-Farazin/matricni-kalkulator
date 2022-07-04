@@ -22,6 +22,8 @@ def mnozi_s_skalarjem(mat, skal):
             mat[i][j] = skal * mat[i][j]
     return mat
 
+
+# Zmnožek dveh matrik
 def zmnozek(mat1, mat2):
     zmnozek = []
     for i in range(len(mat1)):
@@ -34,6 +36,8 @@ def zmnozek(mat1, mat2):
         zmnozek.append(nova_vrsta)
     return zmnozek
 
+
+# Potenciranje matrike
 def potenca(mat, stopnja):
     potencirana_mat = mat
     s = 1
@@ -55,7 +59,7 @@ def transponiraj(mat):
             transponiranka[k][j] = mat[j][k]
     return transponiranka
 
-#vrne matriko brez a-te vrstica in b-tega stolpca
+# Vrne matriko brez a-te vrstica in b-tega stolpca
 def podmatrika(mat, a, b):                       
     return [vrstica[:b - 1] + vrstica[b:] for vrstica in (mat[: a - 1] + mat[a:])]
 
@@ -69,9 +73,3 @@ def determinanta(mat):
         for i in range(len(mat)):
             det += ((-1) ** i) * mat[0][i] * determinanta(podmatrika(mat, 1, i + 1))
         return det
-
-def zamenjaj_vrstici(mat, a, b):
-    nova_a = mat[b - 1]
-    mat[b - 1] = mat[a - 1]
-    mat[a - 1] = nova_a 
-    return mat
