@@ -75,29 +75,3 @@ def zamenjaj_vrstici(mat, a, b):
     mat[b - 1] = mat[a - 1]
     mat[a - 1] = nova_a 
     return mat
-
-def uredi_v_zgornjetrikotno(mat):
-    nova_mat = []
-    for j in range(len(mat[0])):
-        for i in range(len(mat)):
-            if mat[i][j] != 0:
-                nova_mat += [mat[i]]
-        mat = [x for x in mat if x not in nova_mat]
-    return nova_mat + mat
-
-def Gaussova_eliminacija(mat):
-    n = min(len(mat), len(mat[0]))
-    for j in range(n):
-        if mat[j][j] != 0:
-            for i in range(j + 1, len(mat)):
-                mat[i] = razlika([mat[i]], mnozi_s_skalarjem([mat[j]], mat[i][j] / mat[j][j]))[0]
-    return uredi_v_zgornjetrikotno(mat)
-
-def rang(mat):
-    gauss = Gaussova_eliminacija(mat)
-    rang = 0
-    nicelna = [0 for i in range(len(mat[0]))]
-    for i in range(len(mat)):
-        if gauss[i] != nicelna:
-            rang += 1
-    return rang
