@@ -32,4 +32,98 @@ def vnos(operacija):
         return template("vnos_determinanta")
 
 
+# Stran, kjer uporabnik vnese matriko oz. njene elemente
+@post("/vpis_vrednosti/<operacija>")
+def vpis_vrednosti(operacija):
+    if operacija == "sestevanje":
+        st_matrik = 2
+        st_vrstic = [int(request.forms.get("y")), int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("x")), int(request.forms.get("x"))]
+        parameter = ""
+    elif operacija == "odstevanje":
+        st_matrik = 2
+        st_vrstic = [int(request.forms.get("y")), int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("x")), int(request.forms.get("x"))]
+        parameter = ""
+    elif operacija == "mnozenje_s_skalarjem":
+        st_matrik = 1
+        st_vrstic = [int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("x"))]
+        parameter = request.forms.get("n")
+    elif operacija == "matricno_mnozenje":
+        st_matrik = 2
+        st_vrstic = [int(request.forms.get("y")), int(request.forms.get("x1"))]
+        st_stolpcev = [int(request.forms.get("x1")), int(request.forms.get("x2"))]
+        parameter = ""
+    elif operacija == "potenciranje":
+        st_matrik = 1
+        st_vrstic = [int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("y"))]
+        parameter = request.forms.get("p")
+    elif operacija == "transponiranje":
+        st_matrik = 1
+        st_vrstic = [int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("x"))]
+        parameter = ""
+    elif operacija == "sled":
+        st_matrik = 1
+        st_vrstic = [int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("y"))]
+        parameter = ""
+    elif operacija == "determinanta":
+        st_matrik = 1
+        st_vrstic = [int(request.forms.get("y"))]
+        st_stolpcev = [int(request.forms.get("y"))]
+        parameter = ""
+    data = {"st_matrik": st_matrik,
+            "operacija": operacija,
+            "st_vrstic": st_vrstic,
+            "st_stolpcev": st_stolpcev,
+            "parameter": parameter
+            }
+    return template("vpis_vrednosti", data)
+
+
+# Stran, kjer se uporabniku izpiše rezultat
+@post("/izracunaj")
+def izracunaj():
+    operacija = request.forms.get("operacija")
+    st_matrik = int(request.forms.get("st_matrik"))
+    st_stolpcev = request.forms.get("st_stolpcev")[1:-1].split(", ")
+    st_vrstic = request.forms.get("st_vrstic")[1:-1].split(", ")
+    parameter = request.forms.get("parameter")
+    
+    seznam_matrik = []
+    for i in range(st_matrik):
+        matrika = []
+        for y in range(int(st_vrstic[i])):
+            vrstica = []
+            for x in range(int(st_stolpcev[i])):
+                ime = f"polje:{i}-{y}-{x}" 
+                vrstica.append(float(request.forms.get(ime)))
+            matrika.append(vrstica)
+        seznam_matrik.append(matrika)
+
+    if operacija == "sestevanje":
+        rezultat = model.vsota(seznam_matrik[0], seznam_matrik[1])
+    elif operacija == "odstevanje":
+        rezultat = model.razlika(seznam_matrik[0], seznam_matrik[1])
+    elif operacija == "mnozenje_s_skalarjem":
+        rezultat = model.mnozi_s_skalarjem(seznam_matrik[0], float(parameter))
+    elif operacija == "matricno_mnozenje":
+        rezultat = model.zmnozek(seznam_matrik[0], seznam_matrik[1])
+    elif operacija == "potenciranje":
+        rezultat = model.potenca(seznam_matrik[0], float(parameter))
+    elif operacija == "transponiranje":
+        rezultat = model.transponiraj(seznam_matrik[0])
+    elif operacija == "sled":
+        rezultat = model.sled(seznam_matrik[0])
+    elif operacija == "determinanta":
+        rezultat = model.determinanta(seznam_matrik[0]) 
+
+    data = {"seznam_matrik": seznam_matrik,
+            "rezultat": rezultat}
+    return template("prikazi_rezultat", data)
+
+
 bottle.run(reloader=True, debug=True)
