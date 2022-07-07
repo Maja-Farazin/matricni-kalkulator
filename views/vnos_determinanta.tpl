@@ -10,8 +10,8 @@
     % include('seznam_operacij.tpl')
     <form action="/vpis_vrednosti/determinanta" method="post">
         <label for="y">Velikost matrike:</label>
-        <input type="number" name="y" id="y"><br><br>
-        <input type="submit" value="Izračunaj">
+        <input type="number" name="y" id="y" required min="1"><br><br>
+        <input type="submit" value="Naprej">
     </form>
 </body>
 </html>

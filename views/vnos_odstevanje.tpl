@@ -10,10 +10,10 @@
     % include('seznam_operacij.tpl')
     <form action="/vpis_vrednosti/odstevanje" method="post">
         <label for="y">Število vrstic:</label>
-        <input type="number" name="y" id="y"><br>
+        <input type="number" name="y" id="y" required min="1"><br>
         <label for="x">Število stolpcev:</label>
-        <input type="number" name="x" id="x"><br><br>
-        <input type="submit" value="Izračunaj">
+        <input type="number" name="x" id="x" required min="1"><br><br>
+        <input type="submit" value="Naprej">
     </form>
 </body>
 </html>

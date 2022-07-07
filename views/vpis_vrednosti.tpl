@@ -19,7 +19,7 @@
                     <tr>
                         % for stolpec in range(st_stolpcev[matrika]):
                             <td>
-                                <input type="number" name="polje:{{matrika}}-{{vrstica}}-{{stolpec}}" style="width: 50px; height: 50px;">
+                                <input type="number" name="polje:{{matrika}}-{{vrstica}}-{{stolpec}}" step="any" required style="width: 50px; height: 50px;">
                             </td>
                         % end
                     </tr>
