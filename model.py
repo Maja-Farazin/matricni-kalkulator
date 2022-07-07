@@ -53,7 +53,7 @@ def sled(mat):
     return sled
 
 def transponiraj(mat):
-    transponiranka = [[0 for i in range(len(mat[0]))] for j in range(len(mat))]
+    transponiranka = [[0 for i in range(len(mat))] for j in range(len(mat[0]))]
     for j in range(len(mat)):
         for k in range(len(mat[0])):
             transponiranka[k][j] = mat[j][k]
