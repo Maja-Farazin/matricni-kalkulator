@@ -8,7 +8,7 @@ bottle.TEMPLATE_PATH.insert(0, "C:/Users/Maja/Documents/Programiranje/UVP/projek
 # Domača stran, kjer uporabnik izbere željeno matrično operacijo
 @route("/")
 def index():
-    return template("seznam_operacij")
+    return template("domaca_stran")
 
 # Stran, kjer uporabnik izbere velikost matrik s katerimi operira ter, če je potrebno še dodaten parameter (eksponent za potenciranje 
 # ali skalar za množenje)
@@ -122,6 +122,7 @@ def izracunaj():
         rezultat = model.determinanta(seznam_matrik[0]) 
 
     data = {"seznam_matrik": seznam_matrik,
+            "operacija": operacija,
             "rezultat": rezultat}
     return template("prikazi_rezultat", data)
 
