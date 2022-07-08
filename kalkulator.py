@@ -1,5 +1,5 @@
 import bottle
-from bottle import run, route, template, post, request
+from bottle import run, route, template, post, request, static_file
 import model
 
 bottle.TEMPLATE_PATH.insert(0, "C:/Users/Maja/Documents/Programiranje/UVP/projektna/matricni-kalkulator/views")
@@ -9,6 +9,11 @@ bottle.TEMPLATE_PATH.insert(0, "C:/Users/Maja/Documents/Programiranje/UVP/projek
 @route("/")
 def index():
     return template("domaca_stran")
+
+# Povezava s css datoteko
+@route('/<filename>.css')
+def stylesheets(filename):
+    return static_file('{}.css'.format(filename), root='static')
 
 # Stran, kjer uporabnik izbere velikost matrik s katerimi operira ter, če je potrebno še dodaten parameter (eksponent za potenciranje 
 # ali skalar za množenje)

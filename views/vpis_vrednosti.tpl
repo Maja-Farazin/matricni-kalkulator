@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/domaca.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -19,7 +20,8 @@
                     <tr>
                         % for stolpec in range(st_stolpcev[matrika]):
                             <td>
-                                <input type="number" name="polje:{{matrika}}-{{vrstica}}-{{stolpec}}" step="any" required style="width: 50px; height: 50px;">
+                                <input type="number" name="polje:{{matrika}}-{{vrstica}}-{{stolpec}}" step="any" required oninvalid="this.setCustomValidity('To polje ne sme ostati prazno!')" 
+onchange="this.setCustomValidity('')" style="width: 75px; height: 50px; padding: 0;">
                             </td>
                         % end
                     </tr>
