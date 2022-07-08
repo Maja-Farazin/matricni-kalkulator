@@ -1,0 +1,147 @@
+body {
+    text-align: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    background-color: #28282d;
+    color: #eeeeee;
+}
+
+h1 {
+    font-size: 50px ;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    font-size: 28px;
+}
+
+td button {
+  background-color: #ff00c9;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+td button:hover,
+td button:focus {
+  background-color: #ff91e8;
+}
+
+
+input, .domov {
+  background-color: #eeeeee;
+  border-radius: 8px;
+  border-color: #ff00c9;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: #28282d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  width: 10%;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;  
+}
+
+
+/* Urejanje izhodne matrike oz. rezultata */
+.output {
+  background-color: #ff91e8;
+  border-radius: 8px;
+  border-color: #ff00c9;
+  border-width: 1px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100px;
+  height: 50px;
+  line-height: 20px;
+  list-style: none;
+  margin: 2px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;  
+}
+
+
+/* Urejanje drsnega traka */
+::-webkit-scrollbar {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 3px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 3px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff00c9;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 3px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5edd;
+  width: 3px;
+  height: 5px;
+}

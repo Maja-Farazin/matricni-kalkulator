@@ -13,7 +13,7 @@ def index():
 # Povezava s css datoteko
 @route('/<filename>.css')
 def stylesheets(filename):
-    return static_file('{}.css'.format(filename), root='static')
+    return static_file('{}.css'.format(filename), root='matricni-kalkulator/static')
 
 # Stran, kjer uporabnik izbere velikost matrik s katerimi operira ter, če je potrebno še dodaten parameter (eksponent za potenciranje 
 # ali skalar za množenje)
