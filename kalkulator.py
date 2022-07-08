@@ -2,7 +2,7 @@ import bottle
 from bottle import run, route, template, post, request, static_file
 import model
 
-bottle.TEMPLATE_PATH.insert(0, "C:/Users/Maja/Documents/Programiranje/UVP/projektna/matricni-kalkulator/views")
+bottle.TEMPLATE_PATH.insert(0, "matricni-kalkulator/views")
 
 
 # Domača stran, kjer uporabnik izbere željeno matrično operacijo
