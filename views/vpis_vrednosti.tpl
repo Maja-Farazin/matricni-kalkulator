@@ -14,6 +14,7 @@
         <input type="hidden" name="st_vrstic" value="{{st_vrstic}}">
         <input type="hidden" name="st_stolpcev" value="{{st_stolpcev}}">
         <input type="hidden" name="st_matrik" value="{{st_matrik}}">
+        <br><br>
         % for matrika in range(st_matrik):
             <table>
                 % for vrstica in range(st_vrstic[matrika]):
